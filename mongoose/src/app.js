@@ -52,7 +52,28 @@ const getDocument = async () =>{
   }
 }
 
-getDocument();
+// getDocument();
+
+
+const updateDocument = async (_id) =>
+{
+  try{
+    const result = await Playlist.findByIdAndUpdate({_id},
+      {
+      $set : {
+        name : "Nodemon"
+      },   
+      },{
+        useFindAndModify : false
+      });
+    console.log(result);
+  
+  }catch(err){
+     console.log(err);
+  }
+}
+
+updateDocument("638de213c037b3bb74188b08");
 
 
 
