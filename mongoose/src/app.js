@@ -64,6 +64,7 @@ const updateDocument = async (_id) =>
         name : "Nodemon"
       },   
       },{
+        new : true,
         useFindAndModify : false
       });
     console.log(result);
