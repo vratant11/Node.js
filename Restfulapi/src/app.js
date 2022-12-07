@@ -6,17 +6,19 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 //create a new students
 app.post("/students", (req, res) => {
-    console.log(req.body);
-    const user = new Student(req.body);
-    user.save().then(()=>{
-        res.send(user);
-        res.status(201);
-    }).catch((e)=>{
-        res.send(e);
-        res.status(400);
-
+  console.log(req.body);
+  const user = new Student(req.body);
+  user
+    .save()
+    .then(() => {
+      res.send(user);
+     return res.status(201);
     })
-  res.send("Hello");
+    .catch((e) => {
+      console.log(e);
+     return res.status(400);
+    });
+//   res.send("Hello");
 });
 
 app.listen(port, () => {
